@@ -46,8 +46,6 @@ describe("date in task", () => {
 });
 
 
-
-
 describe("create task with complete", () => {
   test("create task with complete", () => {
     const todoItem = new TodoItem(1, "drunk day", new Date(), true);
