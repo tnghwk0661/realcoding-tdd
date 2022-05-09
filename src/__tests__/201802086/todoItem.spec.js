@@ -1,4 +1,4 @@
-import TodoItem from "../vo/TodoItem";
+import TodoItem from "../../vo/TodoItem";
 
 describe("create task", () => {
   test("todo item create", () => {
