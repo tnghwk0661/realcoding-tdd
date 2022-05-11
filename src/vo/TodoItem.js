@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import { makeObservable, observable, action, computed } from "mobx";
+=======
+import { toBeRequired } from "@testing-library/jest-dom/dist/matchers";
+import { makeObservable, observable } from "mobx";
+>>>>>>> fb97e263f7bf22c290127cecfde9a89173714997
 
 class TodoItem {
   /*
@@ -12,7 +17,11 @@ class TodoItem {
   _createdAt = "";
   _completed = false;
 
+<<<<<<< HEAD
   constructor(id, task, createdAt, completed = false) {
+=======
+  constructor(id, task, createdAt, completed=false) {
+>>>>>>> fb97e263f7bf22c290127cecfde9a89173714997
     makeObservable(this, {
       _task: observable,
       _completed: observable,
@@ -21,6 +30,34 @@ class TodoItem {
     this._task = task;
     this._createdAt = createdAt;
     this._completed = completed;
+<<<<<<< HEAD
+=======
+  }
+  equalsDayOfCreatedAt = (_targetDate) => {
+    const sourceDate = new Date(this._createdAt).setHours(0, 0, 0, 0);
+    const targetDate = new Date(_targetDate).setHours(0, 0, 0, 0);
+    return sourceDate === targetDate;
+    /*
+    sourceDate.setHours(0, 0, 0, 0);
+    targetDate.setHours(0, 0, 0, 0);
+    return (
+      sourceDate.getFullYear() === targetDate.getFullYear() &&
+      sourceDate.getDate() === targetDate.getDate() &&
+      sourceDate.getDay() === targetDate.getDay()
+    );*/
+  }
+	
+	updateTask = (task) => {
+		this._task = task;
+  }
+
+	setComplete = () => {
+    this._completed = true;
+  }
+  
+	unsetComplete = () => {
+    this._completed = false;
+>>>>>>> fb97e263f7bf22c290127cecfde9a89173714997
   }
 
   updateTask = (task) => {
