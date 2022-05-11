@@ -1,4 +1,4 @@
-import { makeObservable, observable } from "mobx";
+import { makeObservable, observable, action, computed } from "mobx";
 
 class TodoItem {
   /*
@@ -12,12 +12,34 @@ class TodoItem {
   _createdAt = "";
   _completed = false;
 
-  constructor() {
+  constructor(id, task, createdAt, completed = false) {
     makeObservable(this, {
       _task: observable,
       _completed: observable,
     });
+    this._id = id;
+    this._task = task;
+    this._createdAt = createdAt;
+    this._completed = completed;
   }
+
+  updateTask = (task) => {
+    this._task = task;
+  };
+
+  setComplete = () => {
+    this._completed = true;
+  };
+
+  unsetComplete = () => {
+    this._completed = false;
+  };
+
+  equalsDayOfCreatedAt = (date) => {
+    const sourceDate = new Date(this._createdAt).setHours(0, 0, 0, 0);
+    const targetDate = new Date(date).setHours(0, 0, 0, 0);
+    return sourceDate === targetDate;
+  };
 
   get id() {
     return this._id;
