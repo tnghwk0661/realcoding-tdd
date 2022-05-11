@@ -1,16 +1,11 @@
 import { makeObservable, observable, action, computed } from "mobx";
 
 class TodoItem {
-  /*
-    id: number (고유값)
-    task: string (할 일)
-    createdAt: Date (생성 된 날짜)
-    completed: boolean (완료 여부)
-  */
   _id = "";
   _task = "";
   _createdAt = "";
   _completed = false;
+
 
   constructor(id, task, createdAt, completed = false) {
     makeObservable(this, {
