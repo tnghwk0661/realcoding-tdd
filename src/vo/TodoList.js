@@ -47,6 +47,10 @@ class TodoList {
     return this.notEqualsDayItems.filter(this._notCompletedFilter);
   }
 
+  get items() {
+    return this._items;
+  }
+
   pushTodoItem = (todoItem) => {
     this._items.push(todoItem);
   };
