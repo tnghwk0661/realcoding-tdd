@@ -83,8 +83,8 @@ describe("지난 할 일 중 완료/미완료 구분하기", () => {
     jest.spyOn(todoItem3, "equalsDayOfCreatedAt").mockImplementation(() => false);
     jest.spyOn(todoItem4, "equalsDayOfCreatedAt").mockImplementation(() => false);
     jest.spyOn(todoItem5, "equalsDayOfCreatedAt").mockImplementation(() => false);
-    jest.spyOn(todoItem2, "completed", "get").mockReturnValue(() => true);
-    jest.spyOn(todoItem3, "completed", "get").mockReturnValue(() => true);
+    jest.spyOn(todoItem2, "completed", "get").mockReturnValue(true);
+    jest.spyOn(todoItem3, "completed", "get").mockReturnValue(true);
 
     expect(todoList.notEqualsDayAndCompletedItems).toHaveLength(2);
   });
@@ -95,9 +95,9 @@ describe("지난 할 일 중 완료/미완료 구분하기", () => {
     jest.spyOn(todoItem3, "equalsDayOfCreatedAt").mockImplementation(() => false);
     jest.spyOn(todoItem4, "equalsDayOfCreatedAt").mockImplementation(() => false);
     jest.spyOn(todoItem5, "equalsDayOfCreatedAt").mockImplementation(() => false);
-    jest.spyOn(todoItem1, "completed", "get").mockReturnValue(() => true);
-    jest.spyOn(todoItem3, "completed", "get").mockReturnValue(() => true);
-    jest.spyOn(todoItem5, "completed", "get").mockReturnValue(() => true); 
+    jest.spyOn(todoItem1, "completed", "get").mockReturnValue(true);
+    jest.spyOn(todoItem3, "completed", "get").mockReturnValue(true);
+    jest.spyOn(todoItem5, "completed", "get").mockReturnValue(true); 
 
     expect(todoList.notEqualsDayAndNotCompletedItems).toHaveLength(2);
   });
